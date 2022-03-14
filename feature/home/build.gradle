@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: '../../scripts/module.gradle'
+
+dependencies {
+    implementation project(":core")
+    implementation project(":presentation")
+}
+
+ext.applyHiltDependencies()
+ext.applyTestDependencies()

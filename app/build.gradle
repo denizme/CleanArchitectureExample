@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: '../scripts/module.gradle'
+
+android {
+    defaultConfig {
+        applicationId "com.example.sample"
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "app"
+    productFlavors {
+        dev {
+            dimension "app"
+            buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
+        }
+        prod {
+            dimension "app"
+            buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
+        }
+    }
+}
+
+
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':feature:home')
+}
+
+ext.applyHiltDependencies()
+ext.applyTestDependencies()
