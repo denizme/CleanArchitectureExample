@@ -25,6 +25,7 @@ class DashboardFragment : BaseFragment() {
             val userName = binding.inputUserName.text.toString()
             if (!userName.isNullOrEmpty()) {
                 viewModel.searchUserRepos(userName)
+                binding.textMessage.text = userName
             }
         }
     }

@@ -7,6 +7,12 @@ plugins {
 
 apply from: '../../scripts/module.gradle'
 
+android {
+    defaultConfig {
+        testInstrumentationRunner "com.example.HiltTestRunner"
+    }
+}
+
 dependencies {
     implementation project(":core")
     implementation project(":presentation")
