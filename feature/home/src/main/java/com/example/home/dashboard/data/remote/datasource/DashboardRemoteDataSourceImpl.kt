@@ -6,7 +6,7 @@ import com.example.home.dashboard.data.remote.service.DashboardService
 import javax.inject.Inject
 
 class DashboardRemoteDataSourceImpl @Inject constructor(
-    private val service: DashboardService,
+    private val service: DashboardService
 ) : DashboardRemoteDataSource {
 
     override suspend fun getUserRepos(userName: String): DataFetchResult<List<UserRepoResponse>> =

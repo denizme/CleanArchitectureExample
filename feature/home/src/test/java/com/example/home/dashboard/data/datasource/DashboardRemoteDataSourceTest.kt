@@ -10,11 +10,13 @@ import com.example.home.shared.rule.CoroutinesTestRule
 import com.google.common.truth.Truth
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class DashboardRemoteDataSourceTest {
 
     @get:Rule

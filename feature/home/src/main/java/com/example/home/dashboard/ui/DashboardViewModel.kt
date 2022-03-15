@@ -5,14 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.core.data.models.DataFetchResult
-import com.example.home.R
 import com.example.home.dashboard.domain.model.UserRepo
 import com.example.home.dashboard.domain.usecase.UserRepoParams
 import com.example.home.dashboard.domain.usecase.UserRepoUseCase
 import com.example.presentation.viewmodels.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

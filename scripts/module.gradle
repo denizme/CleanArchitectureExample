@@ -1,7 +1,7 @@
-
 ext.versions = [
-        'minSdk'    : 21,
-        'compileSdk': 31
+        minSdk    : 21,
+        compileSdk: 31,
+        targetSdk : 31
 ]
 
 android {
@@ -9,9 +9,8 @@ android {
 
     defaultConfig {
         minSdk versions.minSdk
-        targetSdk versions.compileSdk
-
-        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        targetSdk versions.targetSdk
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -28,17 +27,24 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
     buildFeatures {
         viewBinding true
     }
-
+    testOptions.unitTests {
+        includeAndroidResources = true
+        all {
+            testLogging {
+                events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            }
+        }
+    }
 }
 
 ext.applyHiltDependencies = { ->
+    def hiltVersion = "2.38.1"
     dependencies {
-        implementation 'com.google.dagger:hilt-android:2.38.1'
-        kapt 'com.google.dagger:hilt-compiler:2.38.1'
+        implementation "com.google.dagger:hilt-android:$hiltVersion"
+        kapt "com.google.dagger:hilt-compiler:$hiltVersion"
     }
 }
 
@@ -53,26 +59,11 @@ ext.applyTestDependencies = { ->
         testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.1'
 
         //androidTest
-        /*
-        androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0'
-        androidTestImplementation 'androidx.test:core-ktx:1.4.0'
-        androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-        androidTestImplementation 'androidx.test.ext:truth:1.4.0'
-        androidTestImplementation 'com.android.support.test:rules:1.0.2'
-        debugImplementation 'androidx.fragment:fragment-testing:1.4.1'
-        androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.12.1"
-        androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-        androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
-        androidTestImplementation 'com.google.dagger:hilt-android-testing:2.28-alpha'
-        kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.28-alpha'
-
-         */
-
-        debugImplementation 'androidx.fragment:fragment-testing:1.4.1'
         androidTestImplementation 'androidx.test.ext:junit:1.1.3'
         androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
         androidTestImplementation 'com.android.support.test:rules:1.0.2'
         androidTestImplementation "com.google.dagger:hilt-android-testing:2.38.1"
         kaptAndroidTest "com.google.dagger:hilt-android-compiler:2.38.1"
+        debugImplementation 'androidx.fragment:fragment-testing:1.4.1'
     }
 }

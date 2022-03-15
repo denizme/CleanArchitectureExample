@@ -8,18 +8,18 @@ plugins {
 
 apply from: '../scripts/module.gradle'
 
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+
 android {
+    compileSdk 31
     defaultConfig {
-        applicationId "com.example.sample"
-        versionCode 1
-        versionName "1.0"
+        applicationId "com.example"
+        versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
+
     flavorDimensions "app"
     productFlavors {
         dev {
@@ -30,36 +30,6 @@ android {
             dimension "app"
             buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
         }
-    }
-}
-
-
-
-android {
-    compileSdk 32
-
-    defaultConfig {
-        applicationId "com.example"
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
     }
 }
 

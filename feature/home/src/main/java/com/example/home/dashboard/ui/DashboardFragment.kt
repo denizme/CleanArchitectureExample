@@ -25,7 +25,6 @@ class DashboardFragment : BaseFragment() {
             val userName = binding.inputUserName.text.toString()
             if (!userName.isNullOrEmpty()) {
                 viewModel.searchUserRepos(userName)
-                binding.textMessage.text = userName
             }
         }
     }
@@ -37,11 +36,11 @@ class DashboardFragment : BaseFragment() {
 
         lifecycleScope.launchWhenCreated {
             viewModel.userRepoList.observe(viewLifecycleOwner) {
+                binding.textMessage.text = "Repo count : ${it.size}"
                 it.forEach {
                     Log.d("REPO NAME : ", it.name)
                 }
             }
         }
     }
-
 }
