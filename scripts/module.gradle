@@ -24,12 +24,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         viewBinding true
     }
+
     testOptions.unitTests {
         includeAndroidResources = true
         all {
@@ -39,6 +42,15 @@ android {
         }
     }
 }
+
+ext.applyNavigationDependencies = { ->
+    dependencies {
+        def navigationVersion = "2.4.1"
+        api "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+        api "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    }
+}
+
 
 ext.applyHiltDependencies = { ->
     def hiltVersion = "2.38.1"
@@ -59,11 +71,15 @@ ext.applyTestDependencies = { ->
         testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.1'
 
         //androidTest
+        androidTestImplementation "junit:junit:4.+"
+        androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
         androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+        androidTestImplementation "com.google.truth:truth:1.0.1"
         androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
         androidTestImplementation 'com.android.support.test:rules:1.0.2'
         androidTestImplementation "com.google.dagger:hilt-android-testing:2.38.1"
         kaptAndroidTest "com.google.dagger:hilt-android-compiler:2.38.1"
         debugImplementation 'androidx.fragment:fragment-testing:1.4.1'
+        androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0'
     }
 }

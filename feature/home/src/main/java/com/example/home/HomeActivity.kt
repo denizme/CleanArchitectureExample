@@ -5,7 +5,7 @@ import com.example.home.dashboard.ui.DashboardFragment
 import com.example.presentation.activities.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,5 +18,4 @@ class HomeActivity : BaseActivity() {
                 .commit()
         }
     }
-
 }

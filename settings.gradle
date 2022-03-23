@@ -6,9 +6,10 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "Sample"
+rootProject.name = "Sample Clean Architecture"
 include ':app'
 include ':core'
 include ':presentation'
 include ':feature:login'
 include ':feature:home'
+include ':feature:campaign'

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_login"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.login.login.ui.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+
+        <argument
+            android:name="userName"
+            app:argType="string" />
+
+        <argument
+            android:name="surName"
+            app:argType="string" />
+
+        <argument
+            android:name="age"
+            app:argType="integer" />
+
+        <deepLink app:uri="myApp://LoginFragment/{userName}?surName={surName}&amp;age={age}" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.login.register.ui.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+
+        <argument
+            android:name="userdata"
+            app:argType="string" />
+
+        <deepLink app:uri="myApp://RegisterFragment?userdata={userdata}" />
+
+    </fragment>
+
+</navigation>

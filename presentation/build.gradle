@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 apply from: '../scripts/module.gradle'
@@ -21,5 +22,6 @@ dependencies {
     api "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
 }
 
+ext.applyNavigationDependencies()
 ext.applyHiltDependencies()
 ext.applyTestDependencies()

@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 apply from: '../scripts/module.gradle'
@@ -36,7 +37,10 @@ android {
 dependencies {
     implementation project(':core')
     implementation project(':feature:home')
+    implementation project(':feature:login')
+    implementation project(':feature:campaign')
 }
 
+ext.applyNavigationDependencies()
 ext.applyHiltDependencies()
 ext.applyTestDependencies()
