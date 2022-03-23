@@ -1,12 +1,10 @@
 package com.example.home.dashboard.ui
 
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.home.R
 import com.example.home.databinding.FragmentDashboardBinding
@@ -32,17 +30,8 @@ class DashboardFragment : BaseFragment() {
             binding.textMessage.text = "denizme"
         }
 
-
         binding.btnGoLogin.setOnClickListener {
-            val uri = Uri.parse("myApp://LoginFragment/mehmet?surName=deniz&age=23")
-            val navOptions = NavOptions.Builder()
-                .setPopUpTo(
-                    "myApp://LoginFragment/mehmet?surName=deniz&age=23",
-                    true
-                )
-                .build()
-
-            findNavController().navigate(deepLink = uri, navOptions = navOptions)
+            findNavController().navigate(R.id.action_dashboard_to_login)
         }
 
     }

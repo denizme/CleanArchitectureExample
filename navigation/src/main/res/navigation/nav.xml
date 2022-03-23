@@ -2,8 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_login"
-    app:startDestination="@id/loginFragment">
+    android:id="@+id/nav_global"
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -15,20 +15,6 @@
             android:id="@+id/action_login_to_register"
             app:destination="@id/registerFragment" />
 
-        <argument
-            android:name="userName"
-            app:argType="string" />
-
-        <argument
-            android:name="surName"
-            app:argType="string" />
-
-        <argument
-            android:name="age"
-            app:argType="integer" />
-
-        <deepLink app:uri="myApp://LoginFragment/{userName}?surName={surName}&amp;age={age}" />
-
     </fragment>
 
     <fragment
@@ -37,11 +23,23 @@
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register">
 
-        <argument
-            android:name="userdata"
-            app:argType="string" />
+        <action
+            android:id="@+id/action_register_to_dashboard"
+            app:destination="@id/dashboardFragment" />
 
-        <deepLink app:uri="myApp://RegisterFragment?userdata={userdata}" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.home.dashboard.ui.DashboardFragment"
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard">
+
+        <action
+            android:id="@+id/action_dashboard_to_login"
+            app:destination="@id/loginFragment" />
+
+        <deepLink app:uri="app://register" />
 
     </fragment>
 
