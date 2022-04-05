@@ -36,5 +36,4 @@ class DataModule {
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
 }

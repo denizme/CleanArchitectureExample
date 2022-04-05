@@ -5,7 +5,10 @@
     app:startDestination="@id/nav_home">
 
     <include app:graph="@navigation/nav_home" />
+    <include app:graph="@navigation/nav_transfer" />
     <include app:graph="@navigation/nav_campaign" />
+    <include app:graph="@navigation/nav_transaction" />
     <include app:graph="@navigation/nav_login" />
+    <include app:graph="@navigation/nav_account" />
 
 </navigation>

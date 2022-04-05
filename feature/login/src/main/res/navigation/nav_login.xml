@@ -15,19 +15,7 @@
             android:id="@+id/action_login_to_register"
             app:destination="@id/registerFragment" />
 
-        <argument
-            android:name="userName"
-            app:argType="string" />
-
-        <argument
-            android:name="surName"
-            app:argType="string" />
-
-        <argument
-            android:name="age"
-            app:argType="integer" />
-
-        <deepLink app:uri="myApp://LoginFragment/{userName}?surName={surName}&amp;age={age}" />
+        <deepLink app:uri="login://LoginFragment" />
 
     </fragment>
 

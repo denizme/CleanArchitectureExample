@@ -43,6 +43,21 @@ android {
     }
 }
 
+ext.applyAndroidXDependencies = { ->
+    dependencies {
+        api 'androidx.core:core-ktx:1.7.0'
+        api 'androidx.appcompat:appcompat:1.4.1'
+
+        def lifecycleVersion = "2.4.1"
+        api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+        api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+        api "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+
+        api 'androidx.fragment:fragment-ktx:1.4.1'
+    }
+}
+
+
 ext.applyNavigationDependencies = { ->
     dependencies {
         def navigationVersion = "2.4.1"

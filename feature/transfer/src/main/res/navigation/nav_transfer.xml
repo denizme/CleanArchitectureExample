@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_transfer"
+    app:startDestination="@id/transferFragment">
+
+    <fragment
+        android:id="@+id/transferFragment"
+        android:name="com.example.transfer.transfer.ui.MoneyTransferFragment"
+        android:label="MoneyTransferFragment"
+        tools:layout="@layout/fragment_money_transfer" />
+
+</navigation>

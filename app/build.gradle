@@ -39,6 +39,9 @@ dependencies {
     implementation project(':feature:home')
     implementation project(':feature:login')
     implementation project(':feature:campaign')
+    implementation project(':feature:transfer')
+    implementation project(':feature:transaction')
+    implementation project(':feature:account')
 }
 
 ext.applyNavigationDependencies()

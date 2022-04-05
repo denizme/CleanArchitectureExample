@@ -11,15 +11,6 @@ apply from: '../scripts/module.gradle'
 
 dependencies {
     implementation project(':core')
-    api 'androidx.appcompat:appcompat:1.4.1'
-    api 'com.google.android.material:material:1.5.0'
-
-    api 'androidx.fragment:fragment-ktx:1.4.1'
-
-    def lifecycleVersion = "2.4.1"
-    api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    api "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
 }
 
 ext.applyNavigationDependencies()

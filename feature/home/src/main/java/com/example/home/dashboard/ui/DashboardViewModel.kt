@@ -1,11 +1,8 @@
 package com.example.home.dashboard.ui
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.core.data.models.DataFetchResult
-import com.example.home.dashboard.domain.model.UserRepo
 import com.example.home.dashboard.domain.usecase.UserRepoParams
 import com.example.home.dashboard.domain.usecase.UserRepoUseCase
 import com.example.presentation.viewmodels.BaseViewModel
@@ -17,16 +14,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-    //private val context: Application,
+    private val context: Application,
     private val userRepoUseCase: UserRepoUseCase
-) : BaseViewModel() {
-
-    private val _userRepoList: MutableLiveData<List<UserRepo>> = MutableLiveData()
-    val userRepoList: LiveData<List<UserRepo>>
-        get() = _userRepoList
-
-    private val _errorMessage: MutableLiveData<String> = MutableLiveData()
-    val errorMessage: LiveData<String> = _errorMessage
+) : BaseViewModel<DashboardViewState>() {
 
     fun searchUserRepos(userName: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -35,16 +25,17 @@ class DashboardViewModel @Inject constructor(
             withContext(Dispatchers.Main) {
                 when (searchResult) {
                     is DataFetchResult.Success -> {
-                        _userRepoList.postValue(searchResult.data)
+                        _viewState.postValue(DashboardViewState.UserRepoList(searchResult.data))
                     }
                     is DataFetchResult.Failure -> {
                         searchResult.e.printStackTrace()
-                        _errorMessage.postValue(searchResult.e.message)
+                        _viewState.postValue(DashboardViewState.Error(searchResult.e))
                     }
-                    is DataFetchResult.Progress -> {}
+                    is DataFetchResult.Progress -> {
+                        _viewState.postValue(DashboardViewState.Loading(searchResult.loading))
+                    }
                 }
             }
         }
     }
-
 }

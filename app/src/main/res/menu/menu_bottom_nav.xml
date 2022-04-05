@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_nav_menu_home"
+        android:title="Anasayfa" />
+
+    <item
+        android:id="@+id/nav_transfer"
+        android:icon="@drawable/ic_nav_menu_transfer"
+        android:title="Transfer" />
+
+    <item
+        android:id="@+id/nav_campaign"
+        android:icon="@drawable/ic_nav_menu_campaign"
+        android:title="Kampanya" />
+
+    <item
+        android:id="@+id/nav_transaction"
+        android:icon="@drawable/ic_nav_menu_transaction"
+        android:title="İşlemler" />
+
+</menu>

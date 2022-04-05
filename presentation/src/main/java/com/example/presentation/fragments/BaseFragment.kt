@@ -11,6 +11,7 @@ import androidx.viewbinding.ViewBinding
 abstract class BaseFragment : Fragment() {
     @get:LayoutRes
     protected abstract val layoutResId: Int
+
     protected abstract val binding: ViewBinding
 
     override fun onCreateView(
