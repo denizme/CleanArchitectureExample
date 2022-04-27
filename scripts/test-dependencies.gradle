@@ -1,0 +1,23 @@
+
+
+dependencies {
+    //test
+    testImplementation(TestLibraries.coroutines)
+    testImplementation(TestLibraries.junit)
+    testImplementation(TestLibraries.mockk)
+    testImplementation(TestLibraries.truth)
+    testImplementation(TestLibraries.coreTesting)
+    testImplementation(TestLibraries.mockWebserver)
+
+    //androidTest
+    androidTestImplementation(AndroidTestLibraries.junit)
+    androidTestImplementation(AndroidTestLibraries.coreTesting)
+    androidTestImplementation(AndroidTestLibraries.testExt)
+    androidTestImplementation(AndroidTestLibraries.truth)
+    androidTestImplementation(AndroidTestLibraries.espressoCore)
+    androidTestImplementation(AndroidTestLibraries.rules)
+    androidTestImplementation(AndroidTestLibraries.hilt)
+    kaptAndroidTest(AndroidTestLibraries.hiltCompiler)
+    debugImplementation(AndroidTestLibraries.fragmentTesting)
+    androidTestImplementation(AndroidTestLibraries.coroutines)
+}
