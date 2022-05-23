@@ -23,6 +23,9 @@ object Libraries {
     const val retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
     const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttpVersion}"
     const val loggingInterceptor= "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpVersion}"
+
+    //Utils
+    const val picasso = "com.squareup.picasso:picasso:${Versions.picassoVersion}"
 }
 
 

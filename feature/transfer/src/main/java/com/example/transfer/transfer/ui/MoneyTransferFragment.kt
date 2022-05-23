@@ -5,11 +5,13 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.core.extensions.observe
+import com.example.core.helper.ThemePreferenceRepository
 import com.example.core.ui.binding.fragmentViewBinding
 import com.example.presentation.fragments.BaseViewModelFragment
 import com.example.transfer.R
 import com.example.transfer.databinding.FragmentMoneyTransferBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MoneyTransferFragment : BaseViewModelFragment<MoneyTransferViewState, MoneyTransferViewModel>() {
@@ -20,8 +22,13 @@ class MoneyTransferFragment : BaseViewModelFragment<MoneyTransferViewState, Mone
 
     override val viewModel: MoneyTransferViewModel by viewModels()
 
+    @Inject
+    lateinit var themePreferenceRepository: ThemePreferenceRepository
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        themeProcess()
+        binding.awesomeCustomView.setImage("https://i4.hurimg.com/i/hurriyet/75/750x422/628a8c724e3fe002f489ca06.jpg")
     }
 
     override fun binds() {
@@ -34,6 +41,15 @@ class MoneyTransferFragment : BaseViewModelFragment<MoneyTransferViewState, Mone
         when (viewState) {
             is MoneyTransferViewState.Loading -> {}
             is MoneyTransferViewState.Error -> {}
+        }
+    }
+
+    private fun themeProcess() {
+        themePreferenceRepository.isDarkThemeLive.observe(this) { isDarkTheme ->
+            isDarkTheme?.let { binding.darkThemeSwitch.isChecked = it }
+        }
+        binding.darkThemeSwitch.setOnCheckedChangeListener { _, checked ->
+            themePreferenceRepository.isDarkTheme = checked
         }
     }
 }

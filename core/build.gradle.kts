@@ -62,4 +62,5 @@ dependencies {
     api(Libraries.androidxFragment)
     api(Libraries.androidxNavigation)
     api(Libraries.androidxNavigationUI)
+    api(Libraries.picasso)
 }

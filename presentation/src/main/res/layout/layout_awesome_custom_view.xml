@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgContainer"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/imgContainer"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="@color/material_on_background_emphasis_medium"
+        tools:text="@tools:sample/lorem" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/imgContainer"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textColor="@color/material_on_background_emphasis_medium"
+        tools:text="@tools:sample/lorem/random" />
+
+</RelativeLayout>

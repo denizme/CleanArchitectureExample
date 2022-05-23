@@ -29,4 +29,5 @@ object Versions {
     const val retrofitVersion = "2.9.0"
     const val okhttpVersion = "4.9.1"
     const val coroutineVersion = "1.6.0"
+    const val picassoVersion = "2.8"
 }

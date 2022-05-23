@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AwesomeCustomView">
+        <attr name="awesomeImage" format="reference" />
+        <attr name="awesomeTitle" format="string" />
+        <attr name="awesomeSubTitle" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="AwesomeTextView">
+        <attr name="awesomeTitleTextAppearance" format="reference"/>
+    </declare-styleable>
+
+</resources>

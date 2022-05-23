@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.example.presentation.views.AwesomeCustomView
+        android:id="@+id/awesomeCustomView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Money Transfer page"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#212121" />
+        app:awesomeSubTitle="Son Dakika: VakıfBank, CEV Şampiyonlar Ligi şampiyonu! Imoco Volley'i 4 sette devirdik"
+        app:awesomeTitle="Şampiyon VakıfBank!" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp">
+
+        <com.example.presentation.views.AwesomeTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:text="Enable dark theme" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/dark_theme_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical" />
+
+    </FrameLayout>
 
 </LinearLayout>

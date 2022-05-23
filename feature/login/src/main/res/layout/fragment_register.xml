@@ -5,12 +5,10 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
+    <com.example.presentation.views.AwesomeTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Register page"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#212121" />
+        android:text="Register page" />
 
 </LinearLayout>

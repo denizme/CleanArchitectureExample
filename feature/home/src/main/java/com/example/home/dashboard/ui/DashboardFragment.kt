@@ -40,6 +40,7 @@ class DashboardFragment : BaseViewModelFragment<DashboardViewState, DashboardVie
             val uri = Uri.parse("myApp://ProfileFragment/${name}?surname=${surname}&age=${age}")
             findNavController().navigate(deepLink = uri)
         }
+
     }
 
     override fun binds() {
